@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Etapa 1 - Aturdido AR</title>
+    <script src="./mindar/aframe.min.js"></script>
+    <script src="./mindar/mindar-image.prod.js"></script>
+    <script src="./mindar/mindar-image-aframe.prod.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+      #ar-scene { width: 100vw; height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <a-scene
+      mindar-image="imageTargetSrc: ./target.mind; autoStart: true; filterMinCF:0.001"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
+      renderer="colorManagement: true; physicallyCorrectLights"
+      id="ar-scene"
+      embedded
+    >
+      <a-assets>
+        <video id="aturdido" src="./assets/ATURDIDO.webm" autoplay loop muted playsinline crossorigin="anonymous"></video>
+        <video id="finca" src="./assets/FINCA EL NEVADO.webm" autoplay loop muted playsinline crossorigin="anonymous"></video>
+        <video id="malbec" src="./assets/MALBEC.webm" autoplay loop muted playsinline crossorigin="anonymous"></video>
+        <video id="cara" src="./assets/CARA.webm" autoplay loop muted playsinline crossorigin="anonymous"></video>
+        <video id="colador" src="./assets/COLADOR.webm" autoplay loop muted playsinline crossorigin="anonymous"></video>
+        <video id="frases" src="./assets/FRASES.webm" autoplay loop muted playsinline crossorigin="anonymous"></video>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <!-- Etapa 1: Orden de videos de fondo a frente -->
+        <a-video src="#aturdido" width="1" height="0.5" position="0 0 -0.01" transparent="true"></a-video>
+        <a-video src="#finca"    width="1" height="0.5" position="0 0 -0.009" transparent="true"></a-video>
+        <a-video src="#malbec"   width="1" height="0.5" position="0 0 -0.008" transparent="true"></a-video>
+        <a-video src="#cara"     width="1" height="0.5" position="0 0 -0.007" transparent="true"></a-video>
+        <a-video src="#colador"  width="1" height="0.5" position="0 0 -0.006" transparent="true"></a-video>
+        <a-video src="#frases"   width="1" height="0.5" position="0 0 -0.005" transparent="true"></a-video>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
